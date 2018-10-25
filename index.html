@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Tom's challenge (https://github.com/scan)</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+  <script>
+    $(function() {
+      $('#main-form').submit(function(event) {
+        event.preventDefault();
+
+        emailField = $('#email');
+        if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.ch$/i.test(emailField.val())) {
+          emailField.addClass('is-valid');
+          emailField.removeClass('is-invalid');
+        } else {
+          emailField.addClass('is-invalid');
+          emailField.removeClass('is-valid');
+        }
+
+        // $('input[required]').each(function(el) {
+        //   validate(el, requiredValidator);
+        // });
+
+        // validate($('#email'), emailValidator);
+        // validate($('#allegiance'), allegianceValidator);
+        // validate($('#display-name'), displayNameValidator);
+        // validate($('#full-name'), fullNameValidator);
+        // validate($('#canton'), cantonValidator);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row" style="margin-top: 3rem">
+      <div class="col">
+        <form id="main-form" action="#" method="post" novalidate>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="email">e-Mail</label>
+                <input id="email" type="email" class="form-control" required />
+                <div class="invalid-feedback">
+                  Please provide a valid CH email.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="display-name">Display name</label>
+                <input id="display-name" type="text" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" type="text" class="form-control" required />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="canton">Canton</label>
+                <input id="canton" type="text" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="allegiance">Do you like Red Pandas</label>
+                <select id="allegiance" class="form-control" required>
+                  <option></option>
+                  <option>Yes</option>
+                  <option>Definitely</option>
+                  <option>Absolutely</option>
+                </select>
+                <div class="invalid-feedback">
+                  <img src="https://i.kym-cdn.com/entries/icons/original/000/007/423/RageFace.jpg"
+                       style="max-width: 100%">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Apply</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
